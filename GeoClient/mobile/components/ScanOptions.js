@@ -2,8 +2,7 @@ import React from 'react';
 import {Text, View , TouchableOpacity} from 'react-native';
 import styles from '../styleSheet'
 
-// pass handle rescan
-// pass handle save Scan
+// PROPS data, type, location (this is a object- not easy to display) reScan(), save()
 export default class ScanOptions extends React.Component {
 
   render() {
@@ -12,6 +11,7 @@ export default class ScanOptions extends React.Component {
        <View style = {[styles.scanBtns, {backgroundColor: 'white'}]}>
          <Text>Type: {this.props.type}</Text>
          <Text>Data: {this.props.data}</Text>
+
        </View>
 
        <TouchableOpacity style={[styles.scanBtns, styles.lightBlue]}
