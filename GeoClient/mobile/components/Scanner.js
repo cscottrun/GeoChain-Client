@@ -37,6 +37,7 @@ export default class Scanner extends React.Component {
 
   // save() {
   //   //need to write function to save scan and pass this to the scanOptions
+  //  // this will be a post req 
   // }
 
   _getLocationAsync = async () => {
@@ -58,7 +59,7 @@ export default class Scanner extends React.Component {
         < ScanOptions 
         data={this.state.codeData} 
         type={this.state.codeType} 
-        location= {this.state.location}
+        location={this.state.location}
         reScan={this.reScan}
         />
       </View>
