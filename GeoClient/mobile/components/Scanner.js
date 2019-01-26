@@ -16,6 +16,8 @@ export default class Scanner extends React.Component {
     }
     this.handleScan = this.handleScan.bind(this)
     this.reScan = this.reScan.bind(this)
+    this.save = this.save.bind(this)
+
   }
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
@@ -35,10 +37,22 @@ export default class Scanner extends React.Component {
     this.setState({codeData: null, codeType: null})
   }
 
-  // save() {
-  //   //need to write function to save scan and pass this to the scanOptions
-  //  // this will be a post req 
-  // }
+  save() {
+    alert(`Your button did something!`);
+    let url = 'https://geochain-server.herokuapp.com/post';
+    let data = this.state
+
+    fetch(url, {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+      })
+      .then(res => res.json())
+      .then(response => console.log('Success:', JSON.stringify(response)))
+      .catch(error => console.error('Error:', error));
+  }
 
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -56,16 +70,19 @@ export default class Scanner extends React.Component {
     return this.state.codeData ? (
       
       <View style={styles.container}>
+
         < ScanOptions 
         data={this.state.codeData} 
         type={this.state.codeType} 
         location={this.state.location}
         reScan={this.reScan}
+        save={this.save}
         />
+
       </View>
       ):(  
       <View style={styles.container}>
-        <BarCodeScanner
+        < BarCodeScanner
           onBarCodeScanned={this.handleScan}
           style={StyleSheet.absoluteFill}
         />          

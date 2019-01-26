@@ -21,6 +21,7 @@ export default class ScanOptions extends React.Component {
        </TouchableOpacity>
 
        <TouchableOpacity style={[styles.scanBtns, styles.darkBlue]}
+        onPress={this.props.save}
         >
          <Text>Save Scan</Text>
        </TouchableOpacity>
