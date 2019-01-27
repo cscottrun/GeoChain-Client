@@ -12,7 +12,9 @@ export default class Scanner extends React.Component {
       errorMessage: null,
       codeType: null,
       codeData: null,
-      location: null,
+      lat: null,
+      long: null,
+      time: null
     }
     this.handleScan = this.handleScan.bind(this)
     this.reScan = this.reScan.bind(this)
@@ -62,7 +64,11 @@ export default class Scanner extends React.Component {
       });
     }
     let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
+    this.setState({ 
+      lat: location.coords.latitude,
+      long: location.coords.longitude,
+      time: Date.now()
+     });
   };
 
   render() {
@@ -72,9 +78,7 @@ export default class Scanner extends React.Component {
       <View style={styles.container}>
 
         < ScanOptions 
-        data={this.state.codeData} 
-        type={this.state.codeType} 
-        location={this.state.location}
+        scan={this.state}
         reScan={this.reScan}
         save={this.save}
         />

@@ -9,8 +9,14 @@ export default class ScanOptions extends React.Component {
     return (
       <View style={styles.optionsBox}>
        <View style = {[styles.scanBtns, {backgroundColor: 'white'}]}>
-         <Text>Type: {this.props.type}</Text>
-         <Text>Data: {this.props.data}</Text>
+         {/* <Text>Type: {this.props.scan.type}</Text>
+         <Text>Data: {this.props.scan.data}</Text> */}
+         {/* <Text>Lat: {this.props.scan.lat}</Text>
+         <Text>Long: {this.props.scan.long}</Text> */}
+         <Text>Time: {this.props.scan.time}</Text>
+
+
+
 
        </View>
 
