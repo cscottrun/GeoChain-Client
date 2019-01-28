@@ -14,7 +14,7 @@ export default class Scanner extends React.Component {
       codeData: null,
       lat: null,
       long: null,
-      time: null
+      time: null,
     }
     this.handleScan = this.handleScan.bind(this)
     this.reScan = this.reScan.bind(this)
@@ -40,8 +40,10 @@ export default class Scanner extends React.Component {
   }
 
   save() {
-    alert(`Your button did something!`);
-    let url = 'https://geochain-server.herokuapp.com/post';
+    heroku = 'https://geochain-server.herokuapp.com/post';
+    localhost = 'http://localhost:2000/post';
+    alert(`Your scan has been saved.`);
+    let url = heroku;
     let data = this.state
 
     fetch(url, {
@@ -51,8 +53,14 @@ export default class Scanner extends React.Component {
         'Content-Type': 'application/json'
       }
       })
-      .then(res => res.json())
-      .then(response => console.log('Success:', JSON.stringify(response)))
+      .then(this.setState({
+        errorMessage: null,
+        codeType: null,
+        codeData: null,
+        lat: null,
+        long: null,
+        time: null,
+      }))
       .catch(error => console.error('Error:', error));
   }
 
