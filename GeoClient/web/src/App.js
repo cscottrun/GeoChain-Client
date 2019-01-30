@@ -4,13 +4,15 @@ import NewChainForm from './components/newChainForm'
 import Nav from './components/Nav'
 import Query from './components/Query'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      screen: 'NewChain'
+      screen: 'Query'
     }
-    this.setScreen= this.setScreen.bind(this)
+    this.setScreen= this.setScreen.bind(this);
+    this.navigate = this.navigate.bind(this);
   }
 
   setScreen() {
@@ -21,12 +23,17 @@ class App extends Component {
       default: return ( < NewChainForm />);
     }
   }
+  navigate(param, e) {
+    this.setState({screen: param})
+  }
 
   render() {
     return (
       <div>
-          < Nav />
-          {this.setScreen()}
+          < Nav navigate={this.navigate}/>
+          <div className='container' >
+            {this.setScreen()}
+          </div>
       </div> 
     );
   }

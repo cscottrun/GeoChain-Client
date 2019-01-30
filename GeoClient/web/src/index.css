@@ -23,3 +23,14 @@ code {
   cursor: pointer;
   padding: 20px;
 }
+.icons {
+  vertical-align: middle;
+  font-size: 70px;
+  
+}
+.compareBox {
+  background-color: grey;
+  opacity:0.2;
+  width: 100%;
+  height: 100%;
+}
