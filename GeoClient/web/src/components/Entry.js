@@ -10,27 +10,31 @@ export default class Entry extends Component {
     super(props);
     this.state ={
       checked: null,
+      factomData: null,
     }
-    this.factomVerify = this.factomVerify.bind(this)
-    this.compare = this.compare.bind(this)
+    this.factomVerify = this.factomVerify.bind(this);
+    this.compare = this.compare.bind(this);
   }
 
   factomVerify () {
     let entryHash = this.props.entry.factom_entry_hash;
     fetch(`https://geochain-server.herokuapp.com/entry/${entryHash}`)
     .then((res) => res.json())
-    .then( (res) => this.compare(this.props.entry, res))
+    .then((res) => this.compare(this.props.entry, res))
     .catch((error) =>{
       console.error(error);
     });
   }
 
-  compare(entry, factom) {  
+  compare(entry, factom) {
+    this.setState({factomData: factom})
     if (factom.barcode_data == entry.barcode_data &&
         factom.time_scanned_unix == entry.time_scanned_unix &&
         Number.parseFloat(factom.latitude).toFixed(5) === Number.parseFloat(entry.latitude).toFixed(5) &&
         Number.parseFloat(factom.longitude).toFixed(5) === Number.parseFloat(entry.longitude).toFixed(5) ) {
       this.setState({checked: true})
+    } else {
+      this.setState({checked: false})
     }
   }
 
@@ -47,7 +51,6 @@ export default class Entry extends Component {
           <Check fontSize="35px" onClick={this.factomVerify} color="green"/> :
           <Circle fontSize="35px" onClick={this.factomVerify}/> } 
         </td>
-
       </tr>
       
     )
