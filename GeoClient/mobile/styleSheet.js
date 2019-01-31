@@ -77,6 +77,9 @@ const styles = {
     borderRadius: 5,
     position: 'absolute',
     top: 600,
+  },
+  buttonText: {
+    fontsize: 18
   }
 
 

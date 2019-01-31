@@ -25,7 +25,7 @@ export default class ScanOptions extends React.Component {
             style={styles.buttonMain}
             onPress={this.props.goScan}
             >
-            <Text style={{fontSize: 18}}>scan barcode</Text>
+            <Text style={styles.buttonText}>scan barcode</Text>
           </TouchableOpacity>
 
         </View>

@@ -102,8 +102,7 @@ export default class Scanner extends React.Component {
           style={styles.buttonSmall}
           onPress={this.props.goHome}
           >
-          <Text>Go</Text>
-          <Text>Home</Text>
+          <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>          
       </View>
     );
