@@ -11,6 +11,10 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  opaqueCover: {
+    backgroundColor: 'rgba(255,255,255,0.7)',
+    
+  },
   optionsBox: {
     backgroundColor: 'lightgrey',
     height: 300,
@@ -31,7 +35,7 @@ const styles = {
     color: '#fff'
   },
   p: {
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold'
   },
   textTopMargin: {
@@ -53,13 +57,27 @@ const styles = {
     justifyContent: 'center',
     borderRadius: 5,  
   },
-  button: {
+  buttonMain: {
     alignItems: 'center',
-    backgroundColor: 'black',
+    justifyContent: 'center',
+    backgroundColor: 'darkorange',
+    width: 150,
+    height: 50,
     padding: 10,
     margin: 20,
     borderRadius: 5
   },
+  buttonSmall: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'darkorange',
+    width: 70,
+    height: 50,
+    padding: 10,
+    borderRadius: 5,
+    position: 'absolute',
+    top: 600,
+  }
 
 
 

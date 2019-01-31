@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styleSheet'
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import { BarCodeScanner, Permissions, Constants, Location } from 'expo';
 import ScanOptions from './ScanOptions'
 
@@ -40,15 +40,15 @@ export default class Scanner extends React.Component {
   }
 
   save() {
-    heroku = 'https://geochain-server.herokuapp.com/post';
-    localhost = 'http://localhost:2000/post';
+    heroku = 'https://geochain-server.herokuapp.com/entries';
+    localhost = 'http://localhost:2000/entries';
     alert(`Your scan has been saved.`);
     let url = heroku;
     let data = this.state
 
     fetch(url, {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: 'POST', 
+      body: JSON.stringify(data), 
       headers:{
         'Content-Type': 'application/json'
       }
@@ -81,7 +81,7 @@ export default class Scanner extends React.Component {
 
   render() {
 
-    return this.state.codeData ? (
+    return this.state.codeData && this.state.lat ? (
       
       <View style={styles.container}>
 
@@ -97,7 +97,14 @@ export default class Scanner extends React.Component {
         < BarCodeScanner
           onBarCodeScanned={this.handleScan}
           style={StyleSheet.absoluteFill}
-        />          
+        />
+        <TouchableOpacity 
+          style={styles.buttonSmall}
+          onPress={this.props.goHome}
+          >
+          <Text>Go</Text>
+          <Text>Home</Text>
+        </TouchableOpacity>          
       </View>
     );
 
