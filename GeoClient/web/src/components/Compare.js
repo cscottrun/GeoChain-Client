@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimeStamp from 'react-timestamp'
 import '../skeleton.css';
 import '../index.css';
 
@@ -13,7 +14,7 @@ export default class Compare extends Component {
         <tbody>
         <tr>
           <td>{f.barcode_data}</td>
-          <td>{f.time_scanned_unix}</td>
+          <td><TimeStamp time={f.time_scanned_unix/ 1000} format='date' /></td>
           <td>{f.latitude}</td>
           <td>{f.longitude}</td>
         </tr>

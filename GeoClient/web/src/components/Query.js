@@ -10,6 +10,7 @@ export default class Query extends Component {
       data: [],
     }
   }
+
   
   componentWillMount(){
     return fetch('https://geochain-server.herokuapp.com/entries')

@@ -3,6 +3,7 @@ import '../skeleton.css';
 import '../index.css';
 import Circle from 'react-ionicons/lib/IosHelpCircleOutline'
 import Check from 'react-ionicons/lib/IosCheckmarkCircleOutline'
+import TimeStamp from 'react-timestamp'
 import X from 'react-ionicons/lib/IosCloseCircleOutline'
 import Compare from './Compare'
 
@@ -54,7 +55,7 @@ export default class Entry extends Component {
       <Fragment>
       <tr>
         <td>{entry.barcode_data}</td>
-        <td>{entry.time_scanned_unix}</td>
+        <td><TimeStamp time={entry.time_scanned_unix / 1000} format='date'/></td>
         <td>{entry.latitude}</td>
         <td>{entry.longitude}</td>
         <td>{this.showStatusOfCheck(this.state.checked)} 
