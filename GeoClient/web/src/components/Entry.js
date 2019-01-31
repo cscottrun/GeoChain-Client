@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../skeleton.css';
 import '../index.css';
 import Circle from 'react-ionicons/lib/IosHelpCircleOutline'
 import Check from 'react-ionicons/lib/IosCheckmarkCircleOutline'
+import X from 'react-ionicons/lib/IosCloseCircleOutline'
 import Compare from './Compare'
 
 export default class Entry extends Component {
@@ -26,6 +27,15 @@ export default class Entry extends Component {
     });
   }
 
+  showStatusOfCheck (status) {
+    let symbol = {
+      null: (<Circle fontSize="35px" className='icons' onClick={this.factomVerify}/>) , 
+      true: (<Check fontSize="35px" className='icons' onClick={this.factomVerify} color="green"/>) , 
+      false: (<X fontSize="35px" className='icons' onClick={this.factomVerify} color="red" />)
+    }
+    return symbol[status];
+  }
+
   compare(entry, factom) {
     this.setState({factomData: factom})
     if (factom.barcode_data == entry.barcode_data &&
@@ -41,18 +51,23 @@ export default class Entry extends Component {
   render() {
     let entry = this.props.entry;
     return (
-      
+      <Fragment>
       <tr>
         <td>{entry.barcode_data}</td>
         <td>{entry.time_scanned_unix}</td>
         <td>{entry.latitude}</td>
         <td>{entry.longitude}</td>
-        <td>{ this.state.checked ? 
-          <Check fontSize="35px" onClick={this.factomVerify} color="green"/> :
-          <Circle fontSize="35px" onClick={this.factomVerify}/> } 
+        <td>{this.showStatusOfCheck(this.state.checked)} 
         </td>
       </tr>
-      
+      {this.state.checked === false && 
+        <tr>
+          <td colspan="100%">
+            < Compare
+              factomData = {this.state.factomData} />
+          </td>
+        </tr>}
+      </Fragment>
     )
   }
 }

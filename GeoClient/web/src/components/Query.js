@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import '../skeleton.css';
 import '../index.css';
 import Entry from './Entry'
-import Compare from './Compare'
 
 export default class Query extends Component {
   constructor(props) {
     super(props);
     this.state={
-      data: []
+      data: [],
     }
   }
   
@@ -34,6 +33,7 @@ export default class Query extends Component {
 
     return (
       <div>
+       
       <table className="u-full-width">
         <thead>
           <tr>
@@ -50,7 +50,6 @@ export default class Query extends Component {
         </tbody>
         
       </table>
-     
       </div>
     )
   }
