@@ -72,8 +72,6 @@ export default class Query extends Component {
 
   render() {
 
-    
-   
     let entries = this.state.data.map( entry => {
       return < Entry entry={entry}  key={entry.id} />
     });
