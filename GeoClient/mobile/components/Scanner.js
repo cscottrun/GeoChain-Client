@@ -21,17 +21,9 @@ export default class Scanner extends React.Component {
     this.save = this.save.bind(this)
 
   }
-  componentWillMount() {
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
-      });
-    } else {
-      this._getLocationAsync();
-    }
-  }
-
+  
   handleScan = ({ type, data }) => {
+    this._getLocationAsync();
     this.setState({codeData: data, codeType: type})
   }
   
