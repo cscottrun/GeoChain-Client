@@ -1,3 +1,8 @@
+
+  /* lightblue: "#8FCAFF";
+  darkblue: "#47657F"; */
+
+
 body {
   margin: 0;
   padding: 0;
@@ -8,15 +13,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.navBar {
+  width: 100%;
+  background-color:#8FCAFF;
+}
+.logo{
+  float: left;
+}
+.title {
+  text-align: left;
+  padding-left: 10px;
 }
 
 .navList {
   display: flex;
   list-style: none;
-
+  position: absolute;
+  top: 10px;
+  right: 5px;
 }
 
 .navOpt {
@@ -28,6 +42,13 @@ code {
   font-size: 70px;
   cursor: pointer;
 }
+th {
+  cursor: pointer;
+}
+th:hover{
+  background-color: whitesmoke;
+}
+
 .compareBox {
   background-color: lightgrey;
   opacity:0.80;
@@ -36,4 +57,14 @@ code {
   top: 40px;
   left: 0px;
   border: 3px solid red;
+}
+li {
+  font-weight: bold;
+}
+.different {
+  border: solid;
+  border-radius: 50%;
+}
+.red {
+  background-color: rgba(255,0,0,.3)
 }

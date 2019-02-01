@@ -13,9 +13,13 @@ export default class Entry extends Component {
     this.state ={
       checked: null,
       factomData: null,
+      different: [],
+      showDiff: true,
     }
     this.factomVerify = this.factomVerify.bind(this);
     this.compare = this.compare.bind(this);
+    this.toggleShowDiff = this.toggleShowDiff.bind(this)
+
   }
 
   factomVerify () {
@@ -28,23 +32,40 @@ export default class Entry extends Component {
     });
   }
 
+  toggleShowDiff () {
+    this.setState(prevState => ({
+      showDiff: !prevState.showDiff
+    }));
+  }
+
   showStatusOfCheck (status) {
     let symbol = {
       null: (<Circle fontSize="35px" className='icons' onClick={this.factomVerify}/>) , 
-      true: (<Check fontSize="35px" className='icons' onClick={this.factomVerify} color="green"/>) , 
-      false: (<X fontSize="35px" className='icons' onClick={this.factomVerify} color="red" />)
+      true: (<Check fontSize="35px" className='icons' color="green"/>) , 
+      false: (<X fontSize="35px" className='icons' onClick={this.toggleShowDiff} color="red" />)
     }
     return symbol[status];
   }
 
-  compare(entry, factom) {
+ 
+  compare (entry, factom) {
     this.setState({factomData: factom})
-    if (factom.barcode_data == entry.barcode_data &&
-        factom.time_scanned_unix == entry.time_scanned_unix &&
-        Number.parseFloat(factom.latitude).toFixed(5) === Number.parseFloat(entry.latitude).toFixed(5) &&
-        Number.parseFloat(factom.longitude).toFixed(5) === Number.parseFloat(entry.longitude).toFixed(5) ) {
-      this.setState({checked: true})
-    } else {
+    this.setState({checked: true})
+    if (factom.barcode_data != entry.barcode_data) {
+      this.setState({ different: [...this.state.different, 'barcode'] })
+      this.setState({checked: false})
+      console.log('no match!')
+    }
+    if (factom.time_scanned_unix != entry.time_scanned_unix) {
+      this.setState({ different: [...this.state.different, 'time'] })
+      this.setState({checked: false})
+    }
+    if (Number.parseFloat(factom.latitude).toFixed(4) !== Number.parseFloat(entry.latitude).toFixed(4)) {
+      this.setState({ different: [...this.state.different, 'lat'] })
+      this.setState({checked: false})
+    }
+    if (Number.parseFloat(factom.longitude).toFixed(4) !== Number.parseFloat(entry.longitude).toFixed(4)) {
+      this.setState({ different: [...this.state.different, 'long'] })
       this.setState({checked: false})
     }
   }
@@ -53,19 +74,20 @@ export default class Entry extends Component {
     let entry = this.props.entry;
     return (
       <Fragment>
-      <tr>
+      <tr className={this.state.checked === false ? 'red' : null}>
         <td>{entry.barcode_data}</td>
-        <td><TimeStamp time={entry.time_scanned_unix / 1000} format='date'/></td>
+        <td><TimeStamp time={entry.time_scanned_unix / 1000} format='full'/></td>
         <td>{entry.latitude}</td>
         <td>{entry.longitude}</td>
         <td>{this.showStatusOfCheck(this.state.checked)} 
         </td>
       </tr>
-      {this.state.checked === false && 
+      {this.state.checked === false && this.state.showDiff &&
         <tr>
-          <td colspan="100%">
+          <td colSpan="100%">
             < Compare
-              factomData = {this.state.factomData} />
+              factomData = {this.state.factomData}
+              different = {this.state.different} />
           </td>
         </tr>}
       </Fragment>

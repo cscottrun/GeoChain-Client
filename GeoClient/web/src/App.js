@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='App'>
           < Nav navigate={this.navigate}/>
           <div className='container' >
             {this.setScreen()}

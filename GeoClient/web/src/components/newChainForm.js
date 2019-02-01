@@ -33,31 +33,37 @@ export default class NewChainForm extends Component {
       <div className="App">
 
         <form onSubmit={this.handleSubmit}> 
+          <div class="row">
+           <div class="six columns">
 
-        <label>
-          ExId:
-          <input name='id1' type="text" value={this.state.id1} onChange={this.handleChange} />
-        </label>
+              <label>
+                External Id:
+              </label>
+                <input className="u-full-width" name='id1' type="text" value={this.state.id1} onChange={this.handleChange} />
 
-        <label>
-          ExId:
-          <input name='id2' type="text" value={this.state.id2} onChange={this.handleChange} />
-        </label>
+              <label>
+                External Id:
+              </label>
+                <input className="u-full-width" name='id2' type="text" value={this.state.id2} onChange={this.handleChange} />
 
-        <label>
-          ExId:
-          <input name='id3' type="text" value={this.state.id3} onChange={this.handleChange} />
-        </label>
+              <label>
+                External Id:
+              </label>
+                <input className="u-full-width" name='id3' type="text" value={this.state.id3} onChange={this.handleChange} />
 
-        <label>
-          Content:
-          <input name='content' type="text" value={this.state.content} onChange={this.handleChange} />
-        </label>
+              <label>
+                Content:
+              </label>
+                <input className="u-full-width" name='content' type="text" value={this.state.content} onChange={this.handleChange} />
 
-        <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" />
+            </div>
+          </div>
         </form>
 
       </div>
+
+     
     );
   }
 
