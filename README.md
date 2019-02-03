@@ -43,10 +43,10 @@ Web
 * `cd GeoChain-Client/GeoClient/web`
 * `npm install`
 * `npm start`
-* open browser to localhost:3000
+* Open browser to localhost:3000
 
 ### Special Thanks
-* Factom for subsidizing my subscription
+* Factom for subsidizing my writes to their system
 * Carl at Factom for advocating on behalf of this application
 * Abhi at Factom for providing feedback mid-way through the sprint
 * Harold Scott at Thoroughbred Technologies for inspiring me to utilize the power of the barcode
