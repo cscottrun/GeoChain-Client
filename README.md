@@ -27,8 +27,8 @@ This system was conceptualized and built over the course of 1 week. Given more t
 * Provide multiple levels of authorization for web client queries
 
 ## Using this App
-You do not need to do anything to use the backend of this application, as the backend is deployed. 
-Web client can be accessed at […] or spun up locally by following the steps listed below
+You do not need to do anything to use the backend of this application, as the backend is deployed.  <br />
+Web client can be accessed at […] or spun up locally by following the steps listed below <br />
 You will need to run the mobile client locally
 * Fork and clone this repo
 Mobile
