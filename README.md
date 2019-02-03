@@ -45,7 +45,7 @@ Web
 * `npm start`
 * open browser to localhost:3000
 
-###Special Thanks
+### Special Thanks
 * Factom for subsidizing my subscription
 * Carl at Factom for advocating on behalf of this application
 * Abhi at Factom for providing feedback mid-way through the sprint
