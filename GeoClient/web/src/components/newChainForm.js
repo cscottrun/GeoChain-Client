@@ -5,9 +5,9 @@ export default class NewChainForm extends Component {
   constructor(props) {
     super(props);
     this.state= {
-      base: 'https://connect-shared-sandbox-2445582615332.production.gw.apicast.io/v1',
-      appId: 'a2165ab6',
-      appKey: 'a762b8621737f5e2009eb5e9625e485b'
+      base: 'https://connect-mainnet-2445582615332.production.gw.apicast.io/v1',
+      appId: '5f296f97',
+      appKey: 'a12f5890209091f71ca1e35bfe9472ce'
 
     }
     this.handleChange = this.handleChange.bind(this);
@@ -33,8 +33,8 @@ export default class NewChainForm extends Component {
       <div className="App">
 
         <form onSubmit={this.handleSubmit}> 
-          <div class="row">
-           <div class="six columns">
+          <div className="row">
+           <div className="six columns">
 
               <label>
                 External Id:
@@ -84,7 +84,7 @@ export default class NewChainForm extends Component {
     exIds.push(this.encoder(this.state.id2));
     exIds.push(this.encoder(this.state.id3));
     let content = this.encoder(this.state.content)
-    fetch(`https://connect-shared-sandbox-2445582615332.production.gw.apicast.io/v1/chains`, {
+    fetch(`${this.state.base}/chains`, {
       method: "POST",
       body: JSON.stringify({
         "external_ids": exIds,
