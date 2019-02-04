@@ -1,4 +1,5 @@
 # GeoChain Client
+https://geochain-client.herokuapp.com/
 
 As our world economy becomes increasingly interdependent, our supply chains grow more complex and difficult to recount. It’s incredibly difficult for customers or buyers to truly know the value of products because there is a significant lack of transparency in our current systems. To bring honesty to supply chain we need to know where something was at a given time, and that everyone is telling the truth. GeoChain provides a complete supply chain management solution allowing major shipping and logistics players to benefit from a shared ledger written to the Factom blockchain. When a record is written to Factom, it’s validated by the largest blockchain networks including Factom, Ethereum and Bitcoin -- making it impossible to lie about the past. 
 
@@ -28,7 +29,7 @@ This application was conceptualized and built over the course of 1 week. Given m
 
 ## Using this App
 You do not need to do anything to use the backend of this application, as the backend is deployed.  <br />
-Web client can be accessed at […] or spun up locally by following the steps listed below. <br />
+Web client can be accessed at https://geochain-client.herokuapp.com/ or spun up locally by following the steps listed below. <br />
 You will need to run the mobile client locally.
 * Fork and clone this repo
 Mobile
