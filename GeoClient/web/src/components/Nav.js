@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import '../skeleton.css';
 import '../index.css';
-// import Pin from 'react-ionicons/lib/IosPin'
-import Chain from 'react-ionicons/lib/IosLink'
-
 
 //PROPS: navigate()
 export default class Nav extends Component {
