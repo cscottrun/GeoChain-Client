@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styleSheet'
-import { Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import { BarCodeScanner, Permissions, Constants, Location } from 'expo';
 import ScanOptions from './ScanOptions'
 

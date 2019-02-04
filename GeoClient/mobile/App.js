@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Fragment } from 'react-native';
-import styles from './styleSheet';
 import Scanner from './components/Scanner'
-import ScanOptions from './components/ScanOptions'
 import Home from './components/Home'
 
 
