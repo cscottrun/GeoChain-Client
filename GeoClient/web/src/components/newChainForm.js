@@ -5,9 +5,6 @@ export default class NewChainForm extends Component {
   constructor(props) {
     super(props);
     this.state= {
-      base: 'https://connect-mainnet-2445582615332.production.gw.apicast.io/v1',
-      appId: '5f296f97',
-      appKey: 'a12f5890209091f71ca1e35bfe9472ce'
 
     }
     this.handleChange = this.handleChange.bind(this);
