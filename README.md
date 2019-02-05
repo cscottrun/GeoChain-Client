@@ -5,6 +5,8 @@ As our world economy becomes increasingly interdependent, our supply chains grow
 
 GeoChain uses smartphones to scan barcodes and collect geo coordinates and timestamp at the scanning event. These data points are written to the Factom Blockchain, and Factom provides an entry hash as a receipt. The barcode data, geo coordinates, timestamp and Factom Entry hash are then recorded in an internal database. Users may then use the GeoChain web client to query entries and validate the record against the entry that was made to Factom at the time of scanning. If the database is ever compromised and a record is changed, everyone will know!
  
+ [![Watch the video](http://i3.ytimg.com/vi/Pi_Cp8cBjpM/hqdefault.jpg)](https://youtu.be/Pi_Cp8cBjpM)
+
 ## Tech Stack
 * Postgresql
 * Express
